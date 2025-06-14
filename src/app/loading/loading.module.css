@@ -1,0 +1,44 @@
+/* src/app/loading/loading.module.css */
+
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ocupa a altura total da viewport */
+    background-color: #f0f2f5; /* Um cinza claro suave */
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+.spinner {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite; /* Animação de rotação */
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loadingText {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.subText {
+    font-size: 16px;
+    color: #777;
+}
+.progressBarContainer{
+    width: 864px;
+    height: 64px;
+}

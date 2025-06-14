@@ -1,0 +1,277 @@
+/* src/app/page.module.css */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+  gap: 10px;
+}
+
+.formulario {
+  margin-top: 3rem;
+}
+
+.header_module {
+  width: 95%;
+  height: 98vh;
+  border-radius: 0 20px 20px 0;
+  background-color: rgb(0, 94, 131);
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+  box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.8);
+  position: relative;
+    z-index: 2;  
+    overflow-y: visible;
+}
+
+.navLogo {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 87%;
+  height: 20%;
+  margin-top: 3.5rem;
+  background-color: #ffff;
+  border-radius: 0 20px 20px 0;
+  box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+.title {
+  width: 100%;
+  max-height: 20%;
+  font-family: Lato;
+  font-weight: 400;
+  display: flex;
+  flex-direction: row;
+  color: rgb(0, 94, 131);
+  font-size: 1.7rem;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 3rem;
+}
+
+.welcome_modules {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  color: black;
+  text-align: center;
+  position: relative; 
+    z-index: 1;
+    margin-left: -7%;
+}
+.apiMessageContainer{
+    display: flex;
+    flex-direction: column;
+    color: #3C354C;
+    align-items: center;
+    text-align: center;
+    font-family: Lato;
+    font-size: 1.1rem;
+    background-color: #DDE6ED;
+    padding: 2rem;
+    border: 1px solid #030303;
+}
+.quoteText{
+background-color: #DDE6ED;
+}
+.emoji {
+  margin: 5px;
+}
+
+.img_welcome {
+  width: 100%;
+}
+
+/* --------------------------------------------------- */
+/* CLASSES PARA FORMULÁRIO E ÍCONES */
+/* --------------------------------------------------- */
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-family: Lato;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.formTitle {
+  width: 100%;
+  max-height: 20%;
+  font-family: "Lato", sans serif;
+  font-weight: 300, bold;
+  font-size: 32px;
+  display: flex;
+  flex-direction: row;
+  color: #ffff;
+  font-size: 24px;
+  justify-content: flex-start;
+  margin-top: 1f2937rem;
+}
+
+.inputLabel {
+  display: block;
+  margin: 0.25rem; 
+  font-size: 1rem;
+  color: #ffff; 
+  font-weight: 400; 
+  text-align: left; 
+}
+
+/* Classe para esconder a label visualmente, mas manter para leitores de tela */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Wrapper para o input e o ícone (essencial para posicionamento relativo) */
+.inputFieldWrapper {
+  position: relative; /* Define o contexto de posicionamento para o ícone */
+  display: flex; /* Ajuda a alinhar verticalmente, embora o ícone seja absolute */
+  align-items: center;
+  width: 100%; /* Garante que o wrapper ocupe a largura total */
+}
+
+/* Estilo para o ícone DENTRO do input */
+.inputIcon {
+  position: absolute; 
+  left: 10px;
+  z-index: 10; /* Garante que o ícone fique por cima do input */
+  color: rgb(0, 94, 131); /* CORRIGIDO: Cor azul para combinar com o header */
+  display: flex; /* Para centralizar o SVG se ele tiver margem interna */
+  align-items: center;
+  justify-content: center;
+  cursor: default; 
+}
+.inputIcon svg {
+  /* Estilo específico para o SVG dentro do span */
+  display: block; /* Remove espaços extras */
+}
+.rightInputIcon {
+    position: absolute;
+    right: 10px; /* Distância da borda direita do input */
+    z-index: 10;
+    color: rgb(0, 94, 131); /* Cor azul para combinar com o header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; /* Indica que é clicável */
+}
+.rightInputIcon svg { /* Estilo específico para o SVG dentro do span */
+    display: block;
+}
+.formInput {
+  width: 100%;
+  padding: 0.5rem;
+  padding-left: 40px; /* AUMENTADO: Espaço para o ícone à esquerda */
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  outline: none;
+  color: #1f2937;
+  background-color: #ffff;
+  transition: all 0.2s ease-in-out;
+}
+.formInput:focus {
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+.loginButton {
+  background-color: rgb(249, 115, 22);
+  color: #fff;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ffff;
+  border-radius: 0.3rem 0 0.3rem 0;
+  transition: background-color 0.15s ease-in-out;
+  margin-top: -1rem;
+}
+.loginButton:hover {
+  background-color: rgb(234, 88, 12);
+}
+
+.message {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.messageSuccess {
+  color: #16a34a;
+}
+
+.messageError {
+  color: #dc2626;
+}
+
+.forgotPasswordLink {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: rgb(249, 115, 22);
+  text-align: right;
+  margin-top: 0.8rem;
+  text-decoration: none;
+}
+.forgotPasswordLink:hover {
+  text-decoration: underline;
+}
+
+.statusContainer {  
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Lato;
+}
+
+.statusIcon {
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.statusTitle {
+  font-weight: 700;
+  font-size: 1.7rem;
+  margin-bottom: 0.25rem;
+}
+.statusSuccessText {
+  color: #16a34a;
+}
+.statusSuccessDetail {
+  color: #ffff;
+}
+
+.statusLoadingText {
+  color: #ffff;
+}
+.statusLoadingDetail {
+  color: #ffff;
+}
+
+.statusErrorText {
+  color: #dc2626;
+}
+.statusErrorDetail {
+  color: #ffff;
+  font-size: 1.1rem;
+}
+
+
