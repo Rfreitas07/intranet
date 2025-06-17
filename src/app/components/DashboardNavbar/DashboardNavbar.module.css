@@ -1,0 +1,149 @@
+/* src/app/components/DashboardNavbar/DashboardNavbar.module.css */
+
+/* Removido: Definições de variáveis CSS em :root. Elas devem estar em globals.css. */
+/* As variáveis --sidebar-width-desktop, --navbar-height e --blue-primary serão herdadas de globals.css */
+
+
+.navbarContainer {
+    position: fixed; /* Fixa a navbar na tela */
+    top: 0; /* Alinha ao topo */
+    left: var(--sidebar-width-desktop); /* Começa após a largura da sidebar */
+    width: calc(100% - var(--sidebar-width-desktop)); /* Ocupa o restante da largura da tela */
+    height: var(--navbar-height); /* Altura fixa */
+    background-color: #ffffff; /* Fundo branco */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    z-index: 100; /* Garante que fique acima de outros conteúdos */
+    display: flex; /* Usa Flexbox para alinhar itens */
+    justify-content: space-between; /* Itens à esquerda e à direita */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 0 20px; /* Padding horizontal */
+    border-bottom: 1px solid #e0e0e0; /* Borda inferior sutil */
+}
+
+.navbarLeft,
+.navbarRight {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaçamento entre os elementos */
+}
+
+/* Estilo dos Botões da Navbar (Notificação, Calendário) */
+.navbarButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%; /* Botão circular */
+    transition: background-color 0.2s ease, color 0.2s ease;
+    color: var(--blue-primary); /* Cor do ícone, agora vinda de globals.css */
+    display: flex; /* Para centralizar o SVG */
+    justify-content: center;
+    align-items: center;
+}
+
+.navbarButton:hover {
+    background-color: #f0f0f0; /* Fundo mais claro ao passar o mouse */
+    color: #004d6b; /* Um tom mais escuro do azul */
+}
+
+.navbarButton svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Estilo da Div de Data */
+.dateDisplay {
+    font-size: 1rem;
+    color: #555555;
+    font-weight: 500;
+}
+
+/* Estilo do Link de Perfil do Usuário */
+.userProfileLink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333333;
+    gap: 10px; /* Espaçamento entre imagem e nome */
+    transition: color 0.2s ease;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.userProfileLink:hover {
+    color: var(--blue-primary); /* Muda a cor do texto no hover, agora vinda de globals.css */
+    background-color: #f0f0f0;
+}
+
+.userProfileImage {
+    width: 40px; /* Tamanho da miniatura da imagem */
+    height: 40px;
+    border-radius: 50%; /* Imagem circular */
+    object-fit: cover; /* Garante que a imagem preencha o círculo */
+    border: 2px solid #e0e0e0; /* Borda sutil */
+}
+
+.userName {
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+
+/* ==================================================================== */
+/* MEDIA QUERIES PARA RESPONSIVIDADE */
+/* ==================================================================== */
+
+/* Para telas menores que 768px (tablets e celulares) */
+@media (max-width: 768px) {
+    .navbarContainer {
+        left: 0; /* Ocupa a largura total da tela em mobile */
+        width: 100%;
+        height: auto; /* Altura flexível em mobile */
+        padding: 10px 15px; /* Menos padding */
+        flex-wrap: wrap; /* Permite que os itens quebrem linha */
+        justify-content: center; /* Centraliza itens */
+        gap: 10px; /* Espaçamento menor geral */
+    }
+
+    .navbarLeft,
+    .navbarRight {
+        gap: 10px; /* Reduz o espaçamento interno */
+        flex-basis: 100%; /* Ocupam a largura total para se empilharem */
+        justify-content: center;
+        margin-bottom: 5px; /* Espaçamento entre as linhas de itens */
+    }
+
+    .navbarButton svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .dateDisplay {
+        font-size: 0.9rem; /* Fonte menor */
+    }
+
+    .userProfileImage {
+        width: 35px;
+        height: 35px;
+    }
+
+    .userName {
+        font-size: 0.95rem;
+    }
+}
+
+/* Para telas muito pequenas (celulares) */
+@media (max-width: 480px) {
+    .navbarContainer {
+        padding: 8px 10px;
+    }
+    .navbarLeft, .navbarRight {
+        gap: 8px;
+    }
+    .dateDisplay {
+        font-size: 0.85rem;
+    }
+    .userName {
+        font-size: 0.9rem;
+    }
+}

@@ -1,14 +1,10 @@
 // src/app/loading/page.js
-// Esta é uma página de loading simples para exibir enquanto o conteúdo principal está sendo carregado,
-// agora com uma barra de progresso visual, combinando com a estrutura existente,
-// e exibindo o nome do usuário logado.
 
-"use client"; // Marca este componente como um Client Component
+"use client";
 
-import React, { useState, useEffect } from 'react'; // Importa useState e useEffect
-import Image from 'next/image'; // Importa o componente Image
-import styles from './loading.module.css'; // Importa estilos específicos da página de loading
-
+import React, { useState, useEffect } from 'react';
+import Image from "next/image";
+import styles from './loading.module.css';
 export default function LoadingPage() {
   // Estado para controlar o progresso da barra (de 0 a 100)
   const [progress, setProgress] = useState(0);
@@ -45,30 +41,35 @@ export default function LoadingPage() {
       setUserName('usuário'); // Se não houver sessão no localStorage, usa 'usuário'
     }
 
-    // Função de limpeza: importante para parar o intervalo quando o componente é desmontado,
-    // evitando vazamentos de memória.
     return () => clearInterval(interval);
-  }, []); // O array vazio [] garante que o useEffect rode apenas uma vez ao montar o componente
+  }, []);
 
   return (
     <div className={styles.loadingContainer}>
-      {/* Título de boas-vindas com o nome do usuário dinâmico */}
+      <div className={styles.nav}>
+        <Image
+                    src="/logoLukSoft.jpg"
+                    alt="Logo LukSoft"
+                    width={230}
+                    height={40}
+                  ></Image>
+      </div>
+
       <h1>Bem-vindo(a), {userName}! Estamos preparando tudo para você...</h1>
-      
+       
       {/* Container da imagem de carregamento */}
       <div className={styles.imageHeader}>
-        <Image 
-          src="/Loading.jpg"
-          alt="Imagem de carregamento"
-          width={845}
-          height={0} // Ajuste a altura conforme necessário para manter a proporção
-          className={styles.headerImage} // Aplica uma classe para estilo da imagem
-        />
+        <Image
+                    src="/load2.jpg"
+                    alt="imagem caregamento"
+                    width={846}
+                    height={405}
+                  className={styles.img}
+                  ></Image>
       </div>
       
       {/* Container da barra de progresso */}
       <div className={styles.progressBarContainer}>
-        {/* A barra de preenchimento, cuja largura é controlada pelo estado 'progress' */}
         <div
           className={styles.progressBarFill}
           style={{ width: `${progress}%` }} // Define a largura em porcentagem

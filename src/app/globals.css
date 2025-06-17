@@ -1,26 +1,38 @@
-@import "tailwindcss";
+/* src/app/globals.css */
 
+
+
+/* Regra global para box-sizing */
+* {
+  box-sizing: border-box;
+}
+
+/* Garante que html, body e o elemento root do Next.js (#__next) ocupem 100% da altura da viewport */
+/* e permitem rolagem automaticamente quando o conteúdo excede a altura */
+html, body, #__next {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: auto; /* Permite rolagem no body/root se o conteúdo total exceder a viewport */
+}
+
+/* Definições de todas as variáveis CSS globais em um ÚNICO bloco :root */
 :root {
+  --sidebar-width-desktop: 250px; /* Largura da sidebar em desktop (aproximadamente 1/4) */
+  --navbar-height: 60px; /* Altura fixa da navbar superior */
+  --blue-primary: rgb(0, 94, 131); /* Cor azul predominante, adicionada aqui */
+
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@theme inline {
+/* Você pode remover este @theme inline se não estiver usando @next/font ou se não for um padrão do seu projeto */
+/* Normalmente, as variáveis CSS globais e as fontes são definidas diretamente no :root ou em classes */
+/* Se este for um projeto Next.js novo com `@next/font`, ele pode gerar isso.
+   Mantenha se o seu projeto estiver usando-o para fontes. */
+/* @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+} */

@@ -6,39 +6,103 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh; /* Ocupa a altura total da viewport */
-    background-color: #f0f2f5; /* Um cinza claro suave */
-    color: #333;
-    font-family: 'Arial', sans-serif;
+    background-color: rgb(0, 94, 131);
+    font-family: 'Lato' sans-serif;
     text-align: center;
+    box-sizing: border-box; /* Garante que padding não aumente o tamanho total */
+}
+.nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 82%;
+  height: 18vh;
+  margin-top: 1rem;
+  background-color: #ffff;
+  border-radius: 20px;
+  box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.4);
+}
+/* Estilos para o título de boas-vindas */
+.loadingContainer h1 {
+    font-size: 1.5rem; /* Tamanho padrão para desktops */
+    color: #ffff;
+    margin: 3rem 0 1rem 0;
+}
+.imageHeader{
+    border-radius: 10px;
+    display: block;
+    width: 50%;
+    height: 'auto';
+    box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.4);
+}
+.img{
+    border-radius: 10px;
 }
 
-.spinner {
-    border: 8px solid #f3f3f3; /* Light grey */
-    border-top: 8px solid #3498db; /* Blue */
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    animation: spin 1s linear infinite; /* Animação de rotação */
-    margin-bottom: 20px;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
+/* Estilos para o texto principal de carregamento */
 .loadingText {
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 10px;
-    color: #555;
+    color: #ffff;
+}
+.loadingPercentage{
+    color: #ffff;
+    font-size: 1.5rem;
+}
+/* Estilos para o texto secundário */
+.subText {
+    font-size: 1.3rem; /* Tamanho padrão para desktops */
+    color: #ffff;
+    margin-top: 1rem;
 }
 
-.subText {
-    font-size: 16px;
-    color: #777;
+/* Container da barra de progresso - AGORA RESPONSIVO */
+.progressBarContainer {
+    width: 90%;
+    max-width: 600px;
+    height: 35px;
+    background-color: #3F3D56; 
+    border-radius: 5px;
+    border: 2px solid #f1f5f9;
+    overflow: hidden;
+    margin-top: 3rem;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
 }
-.progressBarContainer{
-    width: 864px;
-    height: 64px;
+
+.progressBarFill {
+    padding: 0.2rem;
+    height: 100%;
+    background-color: rgb(249, 115, 22); /* Cor de preenchimento azul */
+    
+    transition: width 0.1s ease-out; /* Transição suave para o preenchimento */
+    
+}
+
+/* ==================================================================== */
+/* Media Queries para Responsividade */
+/* ==================================================================== */
+
+/* Para telas menores que 768px (geralmente tablets e celulares) */
+@media (max-width: 768px) {
+    .loadingContainer h1 {
+        font-size: 24px; /* Reduz o tamanho do título */
+        margin-bottom: 20px;
+    }   
+
+    .progressBarContainer {
+        height: 20px; /* Reduz um pouco a altura da barra de progresso */
+        width: 95%; /* Aumenta a largura em telas muito pequenas para ocupar mais espaço */
+    }
+}
+
+/* Para telas muito pequenas (celulares) */
+@media (max-width: 480px) {
+    .loadingContainer h1 {
+        font-size: 20px; /* Ainda menor para celulares */
+        margin-bottom: 15px;
+    }
+
+    .loadingText {
+        font-size: 18px; /* Ainda menor para celulares */
+    }
 }

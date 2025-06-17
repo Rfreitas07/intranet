@@ -1,0 +1,181 @@
+/* Container principal do Dashboard - Usa Flexbox para Sidebar e Main Content */
+.dashboardContainer {
+    display: flex;
+    min-height: 100vh; /* Garante que ocupe a altura total da viewport */
+    background-color: #f8f8f8; /* Fundo suave para o conteúdo principal */
+    font-family: 'Lato', sans-serif; /* Consistência de fonte */
+}
+
+/* Estilos do Menu Lateral (Sidebar) */
+.sidebar {
+    width: var(--sidebar-width-desktop); /* Usa a variável para largura */
+    min-width: 200px; /* Largura mínima para evitar que encolha demais */
+    max-width: 300px; /* Largura máxima para não ficar muito grande em telas largas */
+    background-color: rgb(0, 94, 131); /* Cor azul predominante */
+    color: #ffffff;
+    padding: 20px 0; /* Padding vertical */
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para destacar */
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Permite rolagem se o menu for muito longo */
+    flex-shrink: 0; /* Impede que a sidebar encolha mais do que o necessário */
+    padding-top: calc(20px + var(--navbar-height)); /* Ajusta padding para o espaço da navbar, mesmo na sidebar */
+}
+
+.navList {
+    list-style: none; /* Remove marcadores de lista */
+    padding: 0;
+    margin: 0;
+}
+
+.navList li {
+    margin-bottom: 5px; /* Espaço entre os itens da lista */
+}
+
+/* Estilo padrão para os Links de Navegação */
+.navLink {
+    display: flex; /* Para alinhar ícone e texto */
+    align-items: center;
+    padding: 12px 20px; /* Padding interno para a área clicável */
+    color: #ffffff; /* Cor da letra branca */
+    text-decoration: none; /* Remove sublinhado */
+    font-size: 1.1rem;
+    font-weight: 500;
+    background-color: transparent; /* Fundo transparente (mesma cor do background azul) */
+    transition: background-color 0.2s ease, color 0.2s ease; /* Transição suave */
+    border-radius: 5px; /* Cantos arredondados */
+    margin: 0 10px; /* Espaçamento lateral */
+}
+
+/* Estilo para o Link de Navegação ATIVO ou HOVER */
+.navLink:hover,
+.navLinkActive {
+    background-color: #ffffff; /* Fundo branco */
+    color: rgb(0, 94, 131); /* Letra na cor azul predominante */
+    font-weight: 700; /* Negrito quando ativo/hover */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil ao ativar/hover */
+}
+
+/* Estilo para o ícone dentro do link */
+.navLinkIcon {
+    margin-right: 10px; /* Espaçamento entre o ícone e o texto */
+    fill: currentColor; /* Preenche com a cor atual do texto */
+    stroke: currentColor; /* Contorna com a cor atual do texto */
+}
+
+/* NOVO: Wrapper para o conteúdo principal e a navbar */
+.mainContentWrapper {
+    flex-grow: 1; /* Ocupa o restante do espaço horizontal */
+    display: flex;
+    flex-direction: column; /* Conteúdo interno empilhado verticalmente */
+    position: relative; /* Importante para o posicionamento da navbar stick/fixed */
+    overflow-y: auto; /* Permite rolagem do conteúdo principal */
+}
+
+/* Estilos da Área de Conteúdo Principal */
+.mainContent {
+    flex-grow: 1; /* Ocupa o restante do espaço vertical dentro do mainContentWrapper */
+    padding: 30px;
+    background-color: #f8f8f8;
+    /* Ajusta o padding-top para o espaço ocupado pela navbar superior */
+    padding-top: calc(30px + var(--navbar-height)); 
+}
+
+.mainContentTitle {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.mainContentText {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+
+/* ==================================================================== */
+/* MEDIA QUERIES PARA RESPONSIVIDADE */
+/* ==================================================================== */
+
+/* Para telas menores que 768px (tablets e celulares) */
+@media (max-width: 768px) {
+    .dashboardContainer {
+        flex-direction: column; /* Coloca a sidebar acima do conteúdo principal */
+    }
+
+    .sidebar {
+        width: 100%; /* Sidebar ocupa a largura total */
+        min-width: unset; /* Remove min-width */
+        max-width: unset; /* Remove max-width */
+        height: auto; /* Altura flexível, determinada pelo conteúdo */
+        padding: 15px 0; /* Menos padding */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra na parte inferior */
+        border-radius: 0 0 10px 10px; /* Arredondamento inferior */
+        overflow-y: hidden; /* Remove rolagem do sidebar em mobile */
+        padding-top: 15px; /* Ajusta padding para mobile sem a navbar fixa sobre a sidebar */
+    }
+
+    .navList {
+        display: flex; /* Links lado a lado em mobile */
+        justify-content: space-around; /* Distribui links horizontalmente */
+        flex-wrap: wrap; /* Permite que os links quebrem linha se houver muitos */
+    }
+
+    .navList li {
+        margin: 5px; /* Espaçamento menor entre itens */
+        flex-basis: auto; /* Permite que os itens se ajustem ao conteúdo */
+    }
+
+    .navLink {
+        padding: 10px 15px; /* Menos padding */
+        font-size: 1rem; /* Fonte menor */
+        flex-direction: column; /* Ícone acima do texto em mobile */
+        text-align: center;
+    }
+
+    .navLinkIcon {
+        margin-right: 0; /* Remove margem direita do ícone */
+        margin-bottom: 5px; /* Adiciona margem inferior para separar do texto */
+        width: 24px; /* Aumenta um pouco o tamanho do ícone para toque */
+        height: 24px;
+    }
+
+    /* Em mobile, a navbar ocupa 100% da largura, então o mainContentWrapper não precisa de offset */
+    .mainContentWrapper {
+        flex-grow: 1;
+        position: static; /* Remove fixed/sticky positioning se aplicável */
+        margin-top: 0; /* Remove qualquer margin-top */
+    }
+
+    .mainContent {
+        padding: 20px; /* Menos padding */
+        padding-top: calc(20px + var(--navbar-height)); /* Ainda precisa de padding-top para a navbar */
+    }
+
+    .mainContentTitle {
+        font-size: 2rem; /* Título menor */
+    }
+
+    .mainContentText {
+        font-size: 1rem; /* Texto menor */
+    }
+}
+
+/* Para telas muito pequenas (celulares em paisagem, etc.) */
+@media (max-width: 480px) {
+    .navLink {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+
+    .navLinkIcon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .mainContentTitle {
+        font-size: 1.8rem;
+    }
+}
